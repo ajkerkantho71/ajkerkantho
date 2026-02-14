@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajker Kantho</title>
+
+<link rel="icon" href="logo.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* Main Container */
+.wrapper{
+    text-align:center;
+    width:100%;
+    max-width:400px;
+}
+
+/* Logo */
+.logo img{
+    width:160px;
+    max-width:100%;
+    border-radius:50%;
+    margin-bottom:30px;
+}
+
+/* Social Buttons */
+.social-container{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.social-btn{
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    transition:0.3s;
+}
+
+.social-btn:hover{
+    opacity:0.85;
+}
+
+/* Platform Colors */
+.youtube{ background:#FF0000; }
+.facebook{ background:#1877F2; }
+.twitter{ background:#000000; }
+
+/* Bigger Screens */
+@media(min-width:768px){
+    .logo img{
+        width:200px;
+    }
+
+    .social-btn{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="logo">
+        <img src="logo.png" alt="Ajker Kantho Logo">
+    </div>
+
+    <div class="social-container">
+        <a href="https://www.youtube.com/@Ajkerkantho71" target="_blank" class="social-btn youtube">
+            <i class="fab fa-youtube"></i> YouTube
+        </a>
+
+        <a href="https://www.facebook.com/dainikajkerkanthoofficial02" target="_blank" class="social-btn facebook">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+
+        <a href="https://x.com/ajkerkantho71" target="_blank" class="social-btn twitter">
+            <i class="fab fa-x-twitter"></i> Twitter (X)
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
