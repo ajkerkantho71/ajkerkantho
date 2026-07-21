@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Ajker Kantho Official Links">
+<title>Ajker Kantho</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+:root{
+--bg1:#08111f;--bg2:#10315e;--card:rgba(255,255,255,.12);
+--text:#fff;--shadow:rgba(0,0,0,.35)
+}
+body.light{
+--bg1:#dcefff;--bg2:#ffffff;--card:rgba(255,255,255,.75);
+--text:#111;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:system-ui,Arial,sans-serif;
+color:var(--text);
+min-height:100vh;
+overflow-x:hidden;
+background:linear-gradient(-45deg,var(--bg1),#174ea6,var(--bg2),#0d9488);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+display:flex;justify-content:center;align-items:center;padding:20px}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.particle{position:fixed;border-radius:50%;background:rgba(255,255,255,.2);pointer-events:none;animation:float linear infinite}
+@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-15vh)}}
+.wrap{
+width:100%;max-width:430px;
+background:var(--card);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:28px;
+padding:28px;
+box-shadow:0 20px 50px var(--shadow);
+text-align:center}
+.logo{width:165px;border-radius:50%;box-shadow:0 0 30px #7dd3fc;animation:glow 2.5s infinite alternate}
+@keyframes glow{to{box-shadow:0 0 55px #38bdf8}}
+h1{margin:14px 0 6px}
+.small{opacity:.85;margin-bottom:15px}
+.top{display:flex;justify-content:space-between;gap:8px;margin-bottom:15px}
+button,select{
+border:none;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer}
+.btn{
+display:flex;align-items:center;justify-content:center;gap:10px;
+text-decoration:none;color:#fff;padding:15px;border-radius:50px;
+margin:12px 0;font-weight:700;transition:.25s;box-shadow:0 10px 22px rgba(0,0,0,.25)}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.yt{background:#ff0000}.fb{background:#1877f2}.fbv{background:#145dbf}
+.fbe{background:linear-gradient(135deg,#1877f2,#0b3f8a)}
+.x{background:#000}.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}
+.web{background:#16a34a}
+.counter{margin-top:18px;font-size:.95rem}
+footer{margin-top:14px;font-size:.8rem;opacity:.8}
+</style>
+</head>
+<body>
+<script>
+for(let i=0;i<30;i++){
+let d=document.createElement('div');
+d.className='particle';
+let s=Math.random()*8+3;
+d.style.width=d.style.height=s+'px';
+d.style.left=Math.random()*100+'vw';
+d.style.animationDuration=(10+Math.random()*12)+'s';
+d.style.animationDelay=(-Math.random()*20)+'s';
+document.body.appendChild(d);
+}
+</script>
+
+<div class="wrap">
+<div class="top">
+<button id="theme">🌙</button>
+<select id="lang">
+<option value="en">English</option>
+<option value="bn">বাংলা</option>
+</select>
+</div>
+
+<img src="logo.png" class="logo" alt="Logo">
+<h1 id="title">Ajker Kantho</h1>
+<p class="small" id="sub">Official Social Links</p>
+
+<a class="btn yt" href="https://www.youtube.com/@Ajkerkantho71" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+<a class="btn fb" href="https://www.facebook.com/dainikajkerkanthoofficial02" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+<a class="btn fbv" href="https://www.facebook.com/dainikajkerkanthoofficial1" target="_blank"><i class="fab fa-facebook"></i> Facebook (Verified)</a>
+<a class="btn fbe" href="https://www.facebook.com/ajkerkantho3" target="_blank"><i class="fab fa-facebook"></i> Facebook (English)</a>
+<a class="btn x" href="https://x.com/ajkerkantho71" target="_blank"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+<a class="btn ig" href="https://www.instagram.com/dainikajkerkantho?igsh=MThhajMwZm1hc3UxeA==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a class="btn web" href="http://ajkerkantho.net/" target="_blank"><i class="fas fa-globe"></i> Website</a>
+
+<div class="counter"><span id="v">Visitors: ...</span></div>
+<footer>© 2026 Ajker Kantho</footer>
+</div>
+
+<script>
+const theme=document.getElementById("theme");
+if(localStorage.theme==="light")document.body.classList.add("light");
+theme.onclick=()=>{
+document.body.classList.toggle("light");
+localStorage.theme=document.body.classList.contains("light")?"light":"dark";
+theme.textContent=document.body.classList.contains("light")?"☀️":"🌙";
+};
+
+const lang=document.getElementById("lang");
+const t=document.getElementById("title"),s=document.getElementById("sub");
+lang.onchange=()=>{
+if(lang.value==="bn"){
+t.textContent="আজকের কণ্ঠ";
+s.textContent="অফিসিয়াল সোশ্যাল লিংক";
+}else{
+t.textContent="Ajker Kantho";
+s.textContent="Official Social Links";
+}
+};
+
+fetch("https://api.countapi.xyz/hit/ajkerkantho/homepage")
+.then(r=>r.json())
+.then(d=>document.getElementById("v").textContent="Visitors: "+d.value)
+.catch(()=>document.getElementById("v").textContent="Visitors: N/A");
+</script>
+</body>
+</html>
