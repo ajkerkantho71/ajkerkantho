@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajker Kantho</title>
+<meta name="description" content="Ajker Kantho Official Links">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+:root{--bg:#071226;--card:rgba(255,255,255,.12);--txt:#fff}
+body.light{--bg:#eef5ff;--card:rgba(255,255,255,.82);--txt:#111}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;color:var(--txt);display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden;background:linear-gradient(-45deg,#071226,#0f3f8f,#0b7d74,#16213e);background-size:400% 400%;animation:bg 15s infinite ease}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.p{position:fixed;border-radius:50%;background:rgba(255,255,255,.18);animation:up linear infinite}
+@keyframes up{from{transform:translateY(110vh)}to{transform:translateY(-10vh)}}
+.card{width:100%;max-width:430px;background:var(--card);backdrop-filter:blur(16px);padding:28px;border-radius:28px;text-align:center;border:1px solid rgba(255,255,255,.18)}
+.logo{width:160px;border-radius:50%;box-shadow:0 0 35px #38bdf8;animation:g 2.2s infinite alternate}
+@keyframes g{to{box-shadow:0 0 60px #38bdf8}}
+.top{display:flex;justify-content:space-between;margin-bottom:16px}
+button,select{border:none;padding:10px 14px;border-radius:999px;font-weight:bold}
+a{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:#fff;padding:15px;margin:11px 0;border-radius:999px;font-weight:bold;transition:.25s}
+a:hover{transform:translateY(-3px)}
+.yt{background:#f00}.fb{background:#1877f2}.fbv{background:#145dbf}.fbe{background:linear-gradient(135deg,#1877f2,#0b3f8a)}.x{background:#000}.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}.web{background:#16a34a}
+.small{margin:8px 0 18px;opacity:.9}
+</style>
+</head>
+<body>
+<script>
+for(let i=0;i<32;i++){let d=document.createElement('div');d.className='p';let s=3+Math.random()*8;d.style.width=s+'px';d.style.height=s+'px';d.style.left=Math.random()*100+'vw';d.style.animationDuration=(10+Math.random()*12)+'s';d.style.animationDelay=(-Math.random()*20)+'s';document.body.appendChild(d);}
+</script>
+<div class="card">
+<div class="top">
+<button id="theme">🌙</button>
+<select id="lang"><option value="en">English</option><option value="bn">বাংলা</option></select>
+</div>
+<img src="logo.png" class="logo" alt="logo">
+<h1 id="t">Ajker Kantho</h1>
+<p class="small" id="s">Official Social Links</p>
+
+<a class="yt" href="https://www.youtube.com/@Ajkerkantho71" target="_blank"><i class="fab fa-youtube"></i>YouTube</a>
+<a class="fb" href="https://www.facebook.com/dainikajkerkanthoofficial02" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+<a class="fbv" href="https://www.facebook.com/dainikajkerkanthoofficial1" target="_blank"><i class="fab fa-facebook"></i>Facebook (Verified)</a>
+<a class="fbe" href="https://www.facebook.com/ajkerkantho3" target="_blank"><i class="fab fa-facebook"></i>Facebook (English)</a>
+<a class="x" href="https://x.com/ajkerkantho71" target="_blank"><i class="fab fa-x-twitter"></i>X (Twitter)</a>
+<a class="ig" href="https://www.instagram.com/dainikajkerkantho?igsh=MThhajMwZm1hc3UxeA==" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+<a class="web" href="http://ajkerkantho.net/" target="_blank"><i class="fas fa-globe"></i>Website</a>
+<p id="v">Visitors: ...</p>
+</div>
+<script>
+theme.onclick=()=>{document.body.classList.toggle('light');localStorage.theme=document.body.classList.contains('light')?'light':'dark'}
+if(localStorage.theme==='light')document.body.classList.add('light');
+lang.onchange=()=>{if(lang.value==='bn'){t.textContent='আজকের কণ্ঠ';s.textContent='অফিসিয়াল সোশ্যাল লিংক'}else{t.textContent='Ajker Kantho';s.textContent='Official Social Links'}};
+fetch('https://api.countapi.xyz/hit/ajkerkantho/home').then(r=>r.json()).then(d=>v.textContent='Visitors: '+d.value).catch(()=>v.textContent='Visitors: N/A');
+</script>
+</body>
+</html>
